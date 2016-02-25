@@ -12,9 +12,13 @@ A newly created ticket by a team member.
 
 Used to inform the team that the ticket is valid and is being worked on.
 
-### `Feedback`
+### `Reopened`
 
-Signifies that the ticket is unclear and requires clarity. You should add a comment in which you describe the reason you can't continue work. You should then reassign the ticket to the team member who can answer your question. If you're unsure who that is, reassign to the QA lead. If a QA lead hasn't been assigned or isn't onboard yet, you should assign it to the project manager.
+Used to inform the team that the ticket was reopened and requires additional attention. If you reopen a ticket, please add a comment explaining why it was reopened.
+
+### `Waiting`
+
+Signifies that the ticket cannot be acted upon and you need a response to continue work, i.e. you have questions regarding the ask, a creative asset is needed, etc. Please add a comment in which you describe the reason you cannot continue work. You should then reassign the ticket to the team member who can answer your question. If you're unsure who that is, reassign to the QA lead. If a QA lead hasn't been assigned or isn't onboard yet, you should assign it to the project manager.
 
 ### `WIP`
 
