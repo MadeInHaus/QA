@@ -21,34 +21,34 @@ class MadeInHAUSTests(unittest.TestCase):
     self.driver = webdriver.Chrome()
     self.driver.get("http://madeinhaus.com")
 
-  # def test_does_title_match(self):
-  #   landing_page = basepage.LandingPage(self.driver)
-  #   page_title = landing_page.get_title_text()
-  #   assert "HAUS | Maker of Things for Screens" in page_title
+  def test_does_title_match(self):
+    landing_page = basepage.LandingPage(self.driver)
+    page_title = landing_page.get_title_text()
+    assert "HAUS | Maker of Things for Screens" in page_title
 
-  # def test_menu_links(self):
-  #   menu = basepage.Menu(self.driver)
-  #   time.sleep(7)
-  #   menu.click_burger_button()
-  #   time.sleep(3)
-  #   menu.click_work_link()
-  #   time.sleep(3)
-  #   menu.click_burger_button()
-  #   time.sleep(3)
-  #   menu.click_reel_link()
-  #   time.sleep(3)
-  #   menu.click_burger_button()
-  #   time.sleep(3)
-  #   menu.click_studio_link()
-  #   time.sleep(3)
-  #   menu.click_burger_button()
-  #   time.sleep(3)
-  #   menu.click_contact_link()
-  #   time.sleep(3)
-  #   menu.click_burger_button()
-  #   time.sleep(3)
+  def test_menu_links(self):
+    menu = basepage.Menu(self.driver)
+    time.sleep(7)
+    menu.click_burger_button()
+    time.sleep(3)
+    menu.click_work_link()
+    time.sleep(3)
+    menu.click_burger_button()
+    time.sleep(3)
+    menu.click_reel_link()
+    time.sleep(3)
+    menu.click_burger_button()
+    time.sleep(3)
+    menu.click_studio_link()
+    time.sleep(3)
+    menu.click_burger_button()
+    time.sleep(3)
+    menu.click_contact_link()
+    time.sleep(3)
+    menu.click_burger_button()
+    time.sleep(3)
 
-  def test_work_page_links(self):
+  def test_correct_case_studies_exist(self):
     #Go to Work Page
     menu = basepage.Menu(self.driver)
     time.sleep(7)
@@ -63,23 +63,24 @@ class MadeInHAUSTests(unittest.TestCase):
     case_study_Reader = csv.reader(case_study_file)
     case_study_list = list(case_study_Reader)
 
-    #Iterate Over the List
-    # prod_counter = 1
-    # expected_counter = 0
-    # for expected_case_study in case_study_list:
-    #   prod_case_study = self.driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div[1]/div/div[%d]/div/a/div/h2'%prod_counter).get_attribute('outerHTML')
-    #   assert expected_case_study[expected_counter] in prod_case_study
-    #   print expected_case_study[expected_counter] + " does equal " + prod_case_study
-    #   prod_counter += 1
-    #   expected_counter += 1
+    #Iterate Over the List - Assert expected case studies exist
     prod_counter = 1
     for expected_case_study in case_study_list:
       prod_case_study = self.driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div[1]/div/div[%d]/div/a/div/h2'%prod_counter).get_attribute('outerHTML')
       prod_case_study.encode('utf-8')
-      print expected_case_study
-      print prod_case_study
       assert expected_case_study[0] in prod_case_study
+      print expected_case_study[0] + " is contained in " + prod_case_study
       prod_counter +=1
+
+    #Get count of live case studies - Assert no unexpected case studies exist
+    prod_tile_count = len(self.driver.find_elements_by_class_name("tile"))
+    case_study_count = len(case_study_list)
+
+    print "Case Study is %d " %case_study_count
+    print "Tile Count is %d " %prod_tile_count
+
+    assert case_study_count == prod_tile_count
+
 
   def tearDown(self):
     self.driver.close()
