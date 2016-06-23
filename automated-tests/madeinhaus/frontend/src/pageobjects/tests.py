@@ -1,3 +1,4 @@
+import pytest
 import unittest
 import basepage
 from selenium import webdriver
@@ -7,8 +8,10 @@ from baseelements import BasePageElement
 from baselocators import LandingPageLocators
 from baselocators import MenuLocators
 from baseassertions import MenuAssertions
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 import logging
+import csv
 
 class MadeInHAUSTests(unittest.TestCase):
 
@@ -17,37 +20,66 @@ class MadeInHAUSTests(unittest.TestCase):
   def setUp(self):
     self.driver = webdriver.Chrome()
     self.driver.get("http://madeinhaus.com")
-   
+
   # def test_does_title_match(self):
   #   landing_page = basepage.LandingPage(self.driver)
   #   page_title = landing_page.get_title_text()
-  #   print page_title
+  #   assert "HAUS | Maker of Things for Screens" in page_title
 
-  def test_menu_links(self):
+  # def test_menu_links(self):
+  #   menu = basepage.Menu(self.driver)
+  #   time.sleep(7)
+  #   menu.click_burger_button()
+  #   time.sleep(3)
+  #   menu.click_work_link()
+  #   time.sleep(3)
+  #   menu.click_burger_button()
+  #   time.sleep(3)
+  #   menu.click_reel_link()
+  #   time.sleep(3)
+  #   menu.click_burger_button()
+  #   time.sleep(3)
+  #   menu.click_studio_link()
+  #   time.sleep(3)
+  #   menu.click_burger_button()
+  #   time.sleep(3)
+  #   menu.click_contact_link()
+  #   time.sleep(3)
+  #   menu.click_burger_button()
+  #   time.sleep(3)
+
+  def test_work_page_links(self):
+    #Go to Work Page
     menu = basepage.Menu(self.driver)
     time.sleep(7)
-    menu.click_burger_button()
-    time.sleep(3)
+    menu.click_menu_burger_button()
+    time.sleep(7)
     menu.click_work_link()
-    time.sleep(3)
-    menu.click_burger_button()
-    time.sleep(3)
-    menu.click_reel_link()
-    time.sleep(3)
-    menu.click_burger_button()
-    time.sleep(3)
-    menu.click_studio_link()
-    time.sleep(3)
-    menu.click_burger_button()
-    time.sleep(3)
-    menu.click_contact_link()
-    time.sleep(3)
-    menu.click_burger_button()
-    time.sleep(3)
-    menu.click_careers_link()
-    time.sleep(3)
-    menu.click_burger_button()
-    time.sleep(3)
+    time.sleep(7)
+    work = basepage.Work(self.driver)
+
+    #Open List of Expected Case Studies
+    case_study_file = open('data/case-studies.csv')
+    case_study_Reader = csv.reader(case_study_file)
+    case_study_list = list(case_study_Reader)
+
+    #Iterate Over the List
+    # prod_counter = 1
+    # expected_counter = 0
+    # for expected_case_study in case_study_list:
+    #   prod_case_study = self.driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div[1]/div/div[%d]/div/a/div/h2'%prod_counter).get_attribute('outerHTML')
+    #   assert expected_case_study[expected_counter] in prod_case_study
+    #   print expected_case_study[expected_counter] + " does equal " + prod_case_study
+    #   prod_counter += 1
+    #   expected_counter += 1
+    prod_counter = 1
+    for expected_case_study in case_study_list:
+      prod_case_study = self.driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div[1]/div/div[%d]/div/a/div/h2'%prod_counter).get_attribute('outerHTML')
+      prod_case_study.encode('utf-8')
+      print expected_case_study
+      print prod_case_study
+      assert expected_case_study[0] in prod_case_study
+      prod_counter +=1
 
   def tearDown(self):
     self.driver.close()

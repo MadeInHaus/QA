@@ -1,6 +1,7 @@
 from baseelements import BasePageElement
 from baselocators import LandingPageLocators
 from baselocators import MenuLocators
+from baselocators import WorkLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By 
@@ -16,14 +17,14 @@ class LandingPage(BasePage):
 	"""landing page actions"""
 
 	def get_title_text(self):
-	 	return "HAUS - Maker of Things" in self.driver.title
+	 	return self.driver.title
 
 
 class Menu(BasePage):
 	"""Menu actions"""
 
-	def click_burger_button(self):
-		element = self.driver.find_element(*MenuLocators.BURGER_BUTTON)
+	def click_menu_burger_button(self):
+		element = self.driver.find_element(*MenuLocators.MENU_BURGER_BUTTON)
 		element.click()
 
 	def click_work_link(self):
@@ -46,8 +47,26 @@ class Menu(BasePage):
 		element = self.driver.find_element(*MenuLocators.CONTACT_LINK)
 		element.click()
 
-	def click_careers_link(self):
-		element = self.driver.find_element(*MenuLocators.CAREERS_LINK)
+class Work(BasePage):
+	"""Work page actions"""
+
+	def go_to_work_page(self):
+		self.driver.get("https://madeinhaus.com/work")
+
+	def get_description(self):
+		description = self.driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div[1]/div/div[2]/div/a/div/h2').get_attribute('outerHTML')
+		return description
+
+	def click_work_burger_button(self):
+		element = self.driver.find_element(*WorkLocators.WORK_BURGER_BUTTON)
+		element.click()
+
+	def click_alice_case_study(self):
+		element = self.driver.find_element(*WorkLocators.ALICE_CASE_STUDY)
+		element.click()
+
+	def click_ford_by_design_case_study(self):
+		element = self.driver.find_element(*WorkLocators.FORD_BY_DESIGN_CASE_STUDY)
 		element.click()
 
 # class MainPage(BasePage):
