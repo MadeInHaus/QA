@@ -23,6 +23,9 @@ class LandingPage(BasePage):
 class Menu(BasePage):
 	"""Menu actions"""
 
+	def go_to_work_page(self):
+		self.driver.get("https://madeinhaus.com/work")
+
 	def click_menu_burger_button(self):
 		element = self.driver.find_element(*MenuLocators.MENU_BURGER_BUTTON)
 		element.click()
@@ -50,15 +53,12 @@ class Menu(BasePage):
 class Work(BasePage):
 	"""Work page actions"""
 
-	def go_to_work_page(self):
-		self.driver.get("https://madeinhaus.com/work")
-
 	def get_description(self):
 		description = self.driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div[1]/div/div[2]/div/a/div/h2').get_attribute('outerHTML')
 		return description
 
 	def click_work_burger_button(self):
-		element = self.driver.find_element(*WorkLocators.WORK_BURGER_BUTTON)
+		element = self.driver.find_element(*WorkLocators.CASE_STUDY_CLICK_THROUGH_LIST)
 		element.click()
 
 	def click_alice_case_study(self):

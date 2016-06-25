@@ -1,7 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-
 class BasePageElement(object):
 	"""Bese page class that is initialized on every page object class."""
 
@@ -19,3 +18,7 @@ class BasePageElement(object):
 			lambda driver:  driver.find_elment_by_name(self.locator))
 		element = driver.find_element_by_name(self.locator)
 		return element.get_attribute("value")
+
+	def go_to(self, url):
+		url = self.base_url + url
+		self.driver.get("url")

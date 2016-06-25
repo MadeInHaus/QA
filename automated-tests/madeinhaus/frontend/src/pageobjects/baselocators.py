@@ -15,6 +15,7 @@ class MenuLocators(object):
 
 class WorkLocators(object):
 	WORK_BURGER_BUTTON = (By.XPATH, '//div[@id="app"]/div/div/div/div')
+
 	ALICE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[1]/div/a')
 	FORD_BY_DESIGN_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[2]/div/a')
 	DRAGON_AGE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[3]/div/a')
@@ -27,24 +28,12 @@ class WorkLocators(object):
 	BANANA_BOAT_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[10]/div/a')
 	TAYLOR_MADE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[11]/div/a')
 	MUSTANG_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[12]/div/a')
+	GREY_GOOSE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[13]/div/a')
+	POWERADE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[14]/div/a')
+	PLAYSTATION_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[15]/div/a')
+	MEAN_STINKS_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[16]/div/a')
+	LUNESTRA_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[17]/div/a')
 
-
-
-BANANA BOAT
-//*[@id="app"]/div/main/div/div[1]/div/div[10]/div/a
-TAYLOR MADE
-//*[@id="app"]/div/main/div/div[1]/div/div[11]/div/a
-MUSTANG
-//*[@id="app"]/div/main/div/div[1]/div/div[12]/div/a
-GREY GOOSE
-//*[@id="app"]/div/main/div/div[1]/div/div[13]/div/a
-POWERADE
-//*[@id="app"]/div/main/div/div[1]/div/div[14]/div/a
-PLAYSTATION
-//*[@id="app"]/div/main/div/div[1]/div/div[15]/div/a
-MEAN STINKS
-//*[@id="app"]/div/main/div/div[1]/div/div[16]/div/a
-LUNESTRA
-//*[@id="app"]/div/main/div/div[1]/div/div[17]/div/a
+	CASE_STUDY_CLICK_THROUGH_LIST = ['//*[@id="app"]/div/main/div/div[1]/div/div[1]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[2]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[3]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[4]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[5]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[6]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[7]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[8]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[9]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[10]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[11]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[12]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[13]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[14]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[15]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[16]/div/a','//*[@id="app"]/div/main/div/div[1]/div/div[17]/div/a']
 
 
