@@ -25,30 +25,30 @@ class MadeInHAUSTests(unittest.TestCase):
     page_title = landing_page.get_title_text()
     assert "HAUS | Maker of Things for Screens" in page_title
 
+
   def test_menu_links(self):
     menu = basepage.Menu(self.driver)
     time.sleep(7)
-    menu.click_burger_button()
+    menu.click_menu_burger_button()
     time.sleep(3)
     menu.click_work_link()
     time.sleep(3)
-    menu.click_burger_button()
+    menu.click_menu_burger_button()
     time.sleep(3)
     menu.click_reel_link()
     time.sleep(3)
-    menu.click_burger_button()
+    menu.click_menu_burger_button()
     time.sleep(3)
     menu.click_studio_link()
     time.sleep(3)
-    menu.click_burger_button()
+    menu.click_menu_burger_button()
     time.sleep(3)
     menu.click_contact_link()
     time.sleep(3)
-    menu.click_burger_button()
+    menu.click_menu_burger_button()
     time.sleep(3)
 
   def test_correct_case_studies_exist(self):
-    #Go to Work Page
     menu = basepage.Menu(self.driver)
     time.sleep(7)
     menu.click_menu_burger_button()
@@ -91,13 +91,22 @@ class MadeInHAUSTests(unittest.TestCase):
     work = basepage.Work(self.driver)
 
     #Grab list from locators and click through each actual case study
-    expected_case_study_list = basepage.WorkLocators.CASE_STUDY_CLICK_THROUGH_LIST
-    for expected_case_study in expected_case_study_list:
-        live_case_study = self.driver.find_element_by_xpath('%s' % expected_case_study)  
+    #expected_case_study_list = basepage.WorkLocators.CASE_STUDY_CLICK_THROUGH_LIST
+    tile_counter = len(self.driver.find_elements_by_class_name("tile"))
+    internal_counter = 1
+    #for expected_case_study in expected_case_study_list:
+    while True:
+        live_case_study = self.driver.find_element_by_xpath('//div[@id="app"]/div/main/div/div[3]/div/div[%d]/div/a'%internal_counter) 
         live_case_study.click()    
-        print expected_case_study
-        time.sleep(7)
-        menu.go_to_work_page()
+        time.sleep(5)
+        work.click_work_burger_button()
+        time.sleep(5)
+        menu.click_work_link()
+        time.sleep(5)
+        tile_counter = tile_counter - 1
+        internal_counter = internal_counter + 1
+        if tile_counter == 0:
+            break
 
   def tearDown(self):
     self.driver.close()

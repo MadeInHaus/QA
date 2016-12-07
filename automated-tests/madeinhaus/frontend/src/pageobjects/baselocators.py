@@ -7,17 +7,17 @@ class LandingPageLocators(object):
 class MenuLocators(object):
 	MENU_BURGER_BUTTON = (By.XPATH, '//div[@id="app"]/div/div/div/div/span[3]')
 	MENU_CLOSE_BUTTON = (By.CSS_SELECTOR, 'div.patties')
-	WORK_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[2]/ul/li/a')
-	REEL_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[2]/ul/li[2]/a')
-	STUDIO_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[2]/ul/li[3]/a')
-	CONTACT_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[2]/ul/li[5]/a')
-	CAREERS_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[2]/ul/li[4]/a')
+	WORK_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[3]/ul/li/a')
+	REEL_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[3]/ul/li[2]/a')
+	STUDIO_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[3]/ul/li[3]/a')
+	CONTACT_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[3]/ul/li[5]/a')
+	CAREERS_LINK = (By.XPATH, '//div[@id="app"]/div/div/div[3]/ul/li[4]/a')
 
 class WorkLocators(object):
 	WORK_BURGER_BUTTON = (By.XPATH, '//div[@id="app"]/div/div/div/div')
 
-	ALICE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[1]/div/a')
-	FORD_BY_DESIGN_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[2]/div/a')
+	BLB_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[1]/div/a')
+	HYUNDAI_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[2]/div/a')
 	DRAGON_AGE_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[3]/div/a')
 	SURFACE_AIR_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[4]/div/a')
 	DNG_CASE_STUDY = (By.XPATH, '//*[@id="app"]/div/main/div/div[1]/div/div[5]/div/a')

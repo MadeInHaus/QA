@@ -58,7 +58,7 @@ class Work(BasePage):
 		return description
 
 	def click_work_burger_button(self):
-		element = self.driver.find_element(*WorkLocators.CASE_STUDY_CLICK_THROUGH_LIST)
+		element = self.driver.find_element(*WorkLocators.WORK_BURGER_BUTTON)
 		element.click()
 
 	def click_alice_case_study(self):
