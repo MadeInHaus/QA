@@ -41,6 +41,10 @@ The changes for this ticket have been deployed to a test environment and can be 
 
 The issue described in this ticket is not correct. Please add a comment why this ticket is invalid.
 
+### `Cannot Reproduce`
+
+The issue described in this ticket is not reproducable.
+
 ### `Fixed`
 
 The issue is resolved and approved by HAUS QA.
